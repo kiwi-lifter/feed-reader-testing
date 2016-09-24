@@ -80,10 +80,8 @@ $(function() {
 
     describe('New Feed Selection', function() {
 
-        /* When a new feed is loaded
-         * by the loadFeed function test that the content actually changes.
-         */
-
+        // When a new feed is loaded by the loadFeed function test that the content actually changes.
+      
         // Vars for the original and new feeds to be compared for changes.
         var firstFeed;
         var secondFeed;
