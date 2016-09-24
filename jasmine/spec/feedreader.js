@@ -24,7 +24,7 @@ $(function() {
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
-		it('has a defined URL and the URL is not an empty string', function(){
+		it('each feed has a defined URL and the URL is not an empty string', function(){
 			for(var i = 0, len = allFeeds.length; i < len; i++){
 				expect(allFeeds[i].url).toBeDefined();
 				expect(allFeeds[i].url.length).not.toBe(0);
@@ -37,7 +37,7 @@ $(function() {
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
-		it('has a defined name and the name is not an empty string', function(){
+		it('each feed has a defined name and the name is not an empty string', function(){
 			for(var i = 0, len = allFeeds.length; i < len; i++){
 				expect(allFeeds[i].name).toBeDefined();
 				expect(allFeeds[i].name.length).not.toBe(0);
@@ -71,7 +71,9 @@ describe('The menu', function() {
 			expect($('body').hasClass('menu-hidden')).toBeFalsy();
 			
 		});
-		  
+});
+
+describe('Initial Entries', function(){  
 		  
     /* TODO: Write a new test suite named "Initial Entries" */
 
@@ -81,15 +83,19 @@ describe('The menu', function() {
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
+		beforeEach(function(done){
+			loadFeed(0, done);
+		});
+		
+		it('loads minimum of 1 .entry element to the .feed container', function (done){
+			expect($('.feed .entry').length).toBeGreaterThan(0);
+			done();
+		});
 		 
-		beforeEach(function(){
-			console.log("beforeEach level 1");
-		}); 
-		
-		
-		afterEach(function(){
-			 console.log('afterEach level 1');
-		 });
+});
+
+describe('New Feed Selection', function(){
+	
 
     /* TODO: Write a new test suite named "New Feed Selection"
 
@@ -97,6 +103,25 @@ describe('The menu', function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
-		 
+		var first;
+		var second;
+		
+		beforeEach(function(done){
+			loadFeed(0, function(){
+				first = $('.feed').html();
+				loadFeed(1, function(){
+					second = $('.feed').html();
+					done();
+				});
+			});
+		});
+		
+		it('changes the content when new feed is loaded', function (done){
+			expect(first != second).toBe(true);
+			done();
+		});
+
+
+			
 	});
 }());
