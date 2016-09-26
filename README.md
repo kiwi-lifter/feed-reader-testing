@@ -1,8 +1,8 @@
 # Feed Reader - Testing with Jasmine
 
-Project for Udacity FEND nano degree - using Jasmine to test a web-based application that reads RSS feeds. 
+> Udacity FEND nano degree project - using Jasmine to build suites and specs to test a web-based application that reads and displays RSS feeds. 
 
-**Scenario:** The original developer of this application clearly saw the value in testing, they've already included [Jasmine](http://jasmine.github.io/) and even started writing their first test suite! Unfortunately, they decided to move on to start their own company and we're now left with an application with an incomplete test suite. That's where you come in.
+**Scenario:** The original developer of this application clearly saw the value in testing, they've already included [Jasmine](http://jasmine.github.io/) and even started writing their first test suite! Unfortunately, they decided to move on to start their own company and we're now left with an application with an incomplete test suite.
 
 ##Getting Started##
 
